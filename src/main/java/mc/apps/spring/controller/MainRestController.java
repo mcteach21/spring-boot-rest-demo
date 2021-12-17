@@ -19,17 +19,18 @@ public class MainRestController {
         this.userRepository = userRepository;
     }
 
-    @GetMapping("/" )
-    public String index(){
-        return "<a href='/list'>Users</a>";
-    }
+//    @GetMapping("/" )
+//    public String index(){
+//        return "<a href='/users'>Users</a>";
+//    }
 
-    @GetMapping("/list" )
+
+    @GetMapping("/rest/users" )
     public List<User> list(){
         return (List<User>) userRepository.findAll();
     }
 
-    @PostMapping("/add")
+    @PostMapping("/rest/users")
     public void add(@RequestBody User user){
         logger.log(Level.INFO, "********************************");
         logger.log(Level.INFO, "user to add : "+user);
